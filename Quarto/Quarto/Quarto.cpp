@@ -1,10 +1,13 @@
 #include <iostream>
 #include "Piece.h"
-
+#include "Board.h"
 int main()
 {
-	Piece piece2(Piece::Color::eDark, Piece::Shape::eRound, Piece::Body::eHollow, Piece::Height::eTall);
-	Piece piece1(Piece::Color::eWhite, Piece::Shape::eRound, Piece::Body::eFull, Piece::Height::eShort);
+	Piece piece1(Piece::Color::eWhite, Piece::Shape::eRound, Piece::Body::eFull, Piece::Height::eTall);
+	Piece piece2(Piece::Color::eWhite, Piece::Shape::eRound, Piece::Body::eHollow, Piece::Height::eTall);
+	Board board;
+	board[std::make_pair(1, 3)] = piece2;
+	std::cout << board << std::endl;
+	std::cout << piece1 << " " << piece2;
 
-	std::cout << piece1 << std::endl << piece2;
 }
