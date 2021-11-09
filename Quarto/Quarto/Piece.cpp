@@ -17,6 +17,16 @@ Piece::Piece(Color color, Shape shape, Body body, Height height) :
 {
 }
 
+Piece::Piece(const Piece& ourPiece)
+{
+	*this = ourPiece;
+}
+
+Piece::Piece(Piece&& piece)
+{
+	*this = std::move(piece);
+}
+
 Piece::Color Piece::GetColor() const
 {
 	return m_color;
@@ -35,6 +45,28 @@ Piece::Shape Piece::GetShape() const
 Piece::Height Piece::GetHeight() const
 {
 	return m_height;
+}
+
+Piece& Piece::operator=(const Piece& piece)
+{
+	this->m_body = piece.m_body;
+	this->m_color = piece.m_color;
+	this->m_height = piece.m_height;
+	this->m_shape = piece.m_shape;
+
+	return *this;
+}
+
+Piece& Piece::operator=(Piece&& piece)
+{
+	this->m_body = piece.m_body;
+	this->m_color = piece.m_color;
+	this->m_height = piece.m_height;
+	this->m_shape = piece.m_shape;
+
+	new(&piece) Piece;
+
+	return *this;
 }
 
 std::ostream& operator<<(std::ostream& out, const Piece& outputPiece)

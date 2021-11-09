@@ -35,6 +35,12 @@ public:
 public:
 	Piece();
 	Piece(Color, Shape, Body, Height);
+	// constructor de copiere:
+	Piece(const Piece&);
+	// constructor de mutare:
+	Piece(Piece&&);
+
+	// Obs! && pentru un rvalue( temporara, poate sta doar in dreapta egalului)
 
 	Color GetColor() const;
 	Body GetBody() const;
@@ -42,6 +48,8 @@ public:
 	Height GetHeight() const;
 
 	friend std::ostream& operator<<(std::ostream& out, const Piece& outputPiece);
+	Piece& operator=(const Piece&);
+	Piece& operator=(Piece&&);
 
 private:
 	Color m_color;
