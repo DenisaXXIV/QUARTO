@@ -35,10 +35,9 @@ public:
 public:
 	Piece();
 	Piece(Color, Shape, Body, Height);
-	// constructor de copiere:
 	Piece(const Piece&);
-	// constructor de mutare:
 	Piece(Piece&&);
+	~Piece();
 
 	// Obs! && pentru un rvalue( temporara, poate sta doar in dreapta egalului)
 
@@ -50,11 +49,15 @@ public:
 	friend std::ostream& operator<<(std::ostream& out, const Piece& outputPiece);
 	Piece& operator=(const Piece&);
 	Piece& operator=(Piece&&);
+	Piece& operator &= (const Piece& other);
+
+	Piece Intersection(const Piece&) const;
+	bool HasAnyFeatureSet() const;
 
 private:
-	Color m_color;
-	Shape m_shape;
-	Body m_body;
-	Height m_height;
+	Body m_body : 2;
+	Color m_color : 2;
+	Height m_height : 2;
+	Shape m_shape : 2;
 };
 

@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{3a68910a-faf7-471c-9c2e-f2e5a641fb98}</ProjectGuid>
-    <RootNamespace>Quarto</RootNamespace>
+    <ProjectGuid>{7d218bc6-62e8-4d8e-bb27-d671754e3130}</ProjectGuid>
+    <RootNamespace>QuartoTests</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -88,7 +88,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,21 +141,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Board.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Piece.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Quarto.cpp" />
-    <ClCompile Include="StateChecker.cpp" />
-    <ClCompile Include="UnusedPiece.cpp" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Board.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="Piece.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="StateChecker.h" />
-    <ClInclude Include="UnusedPiece.h" />
+    <ClCompile Include="BoardStateCheckerTests.cpp" />
+    <ClCompile Include="BoardTests.cpp" />
+    <ClCompile Include="PieceTests.cpp" />
+    <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

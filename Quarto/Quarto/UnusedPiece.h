@@ -17,6 +17,8 @@ public:
 	// Obs!const-ul la final nu permite modificarea obiectului nostru.
 	// Obs! const string& name nu permite modificarea name-ului.
 
+	friend std::ostream& operator << (std::ostream& os, const UnusedPiece& unusedPieces);
+
 private:
 	void GeneratePieces();
 	void InsertPiece(const Piece& newPiece);
